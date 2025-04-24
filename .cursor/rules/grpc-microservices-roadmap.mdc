@@ -1,0 +1,52 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Next Steps for gRPC Microservices Project
+
+## Services Implementation
+
+### 1. Product Service
+- Implement repository layer for database operations in [services/product-service](mdc:services/product-service)
+- Develop handler layer for gRPC implementation based on [proto/product.proto](mdc:proto/product.proto)
+- Set up configuration similar to other services
+
+### 2. Order Service
+- Complete the order service in [services/order-service](mdc:services/order-service)
+- Set up gRPC client connections to User and Product services
+- Implement transaction management
+- Handle order operations as defined in [proto/order.proto](mdc:proto/order.proto)
+
+### 3. Notification Service
+- Finish the notification service in [services/notification-service](mdc:services/notification-service)
+- Connect to email/SMS providers
+- Process notification requests according to [proto/notification.proto](mdc:proto/notification.proto)
+
+## Infrastructure and Cross-Cutting Concerns
+
+### 4. Service Discovery
+- Implement service registration using etcd
+- Set up health checks
+- Create dynamic service resolution
+
+### 5. API Gateway
+- Create HTTP-to-gRPC transcoding
+- Implement authentication middleware
+- Set up request routing to appropriate services
+
+### 6. Authentication
+- Enhance the user service with JWT token generation
+- Add middleware for token validation
+- Share authentication across services
+
+### 7. Containerization
+- Create Dockerfiles for each service
+- Set up docker-compose.yml for local development
+- Configure environment variables
+
+### 8. Observability
+- Implement structured logging with a common format
+- Add Prometheus metrics
+- Set up distributed tracing with OpenTelemetry
+

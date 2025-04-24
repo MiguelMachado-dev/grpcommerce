@@ -1,0 +1,42 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# gRPC Microservices Architecture Pattern
+
+## Service Structure
+Each microservice should follow this layered structure:
+
+1. **Repository Layer**: Handles database operations
+   - Implements CRUD operations
+   - Manages database transactions
+   - Returns domain entities
+
+2. **Service Layer**: Contains business logic
+   - Orchestrates operations across repositories
+   - Implements domain-specific rules
+   - Manages transactions that span multiple repositories
+
+3. **Handler Layer**: Implements gRPC interface
+   - Translates between proto messages and domain entities
+   - Performs input validation
+   - Handles protocol-specific concerns
+
+4. **Configuration**: Manages service settings
+   - Database connections
+   - External service endpoints
+   - Feature toggles
+
+## Inter-Service Communication
+- Services should communicate via gRPC
+- Use client-side load balancing
+- Implement circuit breakers for resilience
+- Follow the service discovery pattern
+
+## Error Handling
+- Use standard error codes defined in gRPC
+- Include detailed error messages for debugging
+- Implement proper error propagation across services
+- Log errors with appropriate context
+
